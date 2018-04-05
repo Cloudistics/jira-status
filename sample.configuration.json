@@ -1,0 +1,33 @@
+{
+  "instructions": "Rename this file 'configuration.json' and fill in the properties.",
+  "emailFrom": "your-email-address",
+  "emailTo": [
+    "recipient-email-address1",
+    "recipient-email-address2"
+    
+  ],
+  "emailSubject": "email-subject",
+  "jiraComponent": "jira-component-name",
+  "jiraPassword": "",
+  "jiraUrl": "",
+  "jiraUsername": "",
+  "jiraEpicsToTrack": [
+    {
+      "id": "jira-epic-issue-id1",
+      "name": "friendly name for epic in email body"
+    },
+    {
+      "id": "jira-epic-issue-id2",
+      "name": "friendly name for epic in email body"
+    }    
+  ],
+  "jiraLabelsToTrack": [
+    "jira-label-name1", 
+    "jira-label-name2"
+  ],
+  "jiraProjectName": "jira-project-name",
+  "office365Password": "",
+  "office365Username": "",
+  "office365SmtpHost": "",
+  "office365SmtpPort": ""
+}
