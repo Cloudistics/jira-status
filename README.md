@@ -14,7 +14,7 @@ Rename the `sample.configuration.json` to `configuration.json` and enter the con
 
 ## Usage
 
-```python
+```bash
 python .\jira-status\ --verbose
 ```
 
