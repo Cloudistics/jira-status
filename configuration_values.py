@@ -26,6 +26,7 @@ class ConfigurationValues:
             for epic in json_data['jiraEpicsToTrack']]
         self.jira_labels_to_track = [label.encode('utf-8') \
             for label in json_data['jiraLabelsToTrack']] 
+        self.log_formatter = json_data['logFormatter'].encode('utf-8')
         self.office_365_username = json_data['office365Username'].encode('utf-8')
         self.office_365_password = json_data['office365Password'].encode('utf-8')
         self.office_365_smtp_host = json_data['office365SmtpHost'].encode('utf-8')

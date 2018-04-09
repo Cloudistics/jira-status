@@ -30,7 +30,8 @@ def main():
     if args.verbose:
         print('Collecting JIRA status...\n')
 
-    logger = JiraLogger(GLOBAL_CONFIGURATION.log_filename)
+    logger = JiraLogger(GLOBAL_CONFIGURATION.log_filename,
+                        GLOBAL_CONFIGURATION.log_formatter)
 
     jira_instance = JiraStatus(GLOBAL_CONFIGURATION.jira_url,
                                GLOBAL_CONFIGURATION.jira_username,
