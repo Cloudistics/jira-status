@@ -1,6 +1,6 @@
 # Custom configuration.
 configuration.json
-*.log
+logs/
 objectdb
 .vscode/
 
