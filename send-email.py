@@ -23,28 +23,40 @@ def main():
     parser = argparse.ArgumentParser(
         description=('Send an email using Office365 client.'))
     
-    parser.add_argument('-f', '--filename', dest='filename', required=True,
+    parser.add_argument('-f', '--file', dest='filename', required=True,
                     help='File containing the email message body.', metavar='FILE',
                     type=lambda x: is_valid_file(parser, x))
     
     parser.add_argument('-html', action='store_true',
-                            help='Send the email in HTML format.')                    
+                            help='Send the email in HTML format.')   
+
+    parser.add_argument('-v', '--verbose', action='store_true',
+                        help='Output information to the console')
     
     args = parser.parse_args()
 
     msg = args.filename.read()
     args.filename.close()
 
+    if (args.verbose):
+        print('Initializing Office 365 client.')
+
     mail_client = Office365Client(GLOBAL_CONFIGURATION.office_365_smtp_host,
                                 GLOBAL_CONFIGURATION.office_365_smtp_port,
                                 GLOBAL_CONFIGURATION.office_365_username,
                                 GLOBAL_CONFIGURATION.office_365_password)
+
+    if (args.verbose):
+        print('Sending message.')
 
     mail_client.send_msg(GLOBAL_CONFIGURATION.email_from,
                         GLOBAL_CONFIGURATION.email_to,
                         GLOBAL_CONFIGURATION.email_subject,
                         msg,
                         args.html)
+
+    if (args.verbose):
+        print('Message sent!')
 
 if __name__ == '__main__':
   main() 
