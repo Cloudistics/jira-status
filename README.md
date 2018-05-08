@@ -6,6 +6,7 @@
 * [Configuration](#configuration)
 * [Usage](#usage)
 * [Options](#options)
+* [Send Email](#send-an-email)
 * [License](#license)
 
 ## Configuration
