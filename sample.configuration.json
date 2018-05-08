@@ -24,7 +24,7 @@
   "jiraProjectName": "jira-project-name",
   "jiraUrl": "",
   "jiraUsername": "",
-  "logFileExtension": ".log",
+  "logFileExtension": ".yml",
   "logFilename": "jira-status-",
   "logFilenameAppendTimestamp": true,
   "logFormatter": "%(message)s",

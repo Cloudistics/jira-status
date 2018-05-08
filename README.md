@@ -1,5 +1,5 @@
-## JIRA Status
-### Python module for collecting information on a JIRA project.
+## JiRA Status
+### Python module for collecting information on a JiRA project.
 
 ## Table of Contents
 
@@ -25,7 +25,6 @@ You can find the output of the script in the `logs` directory of the project.
 Option | Description | Usage
 ---    | ---         | ---
 Verbose | Outputs the status and information about the script's progress to the CLI. | `--verbose`
-Email | Sends an email based on the `configuration.json` file. | `--email`
 
 ## License
 

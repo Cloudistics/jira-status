@@ -1,3 +1,6 @@
+"""
+Logger for writing JiRA statistics to a file.
+"""
 import logging
 import os
 import time
@@ -5,7 +8,7 @@ import utility_path
 
 class JiraLogger:
     """
-    Log information retrieved from JIRA.
+    Log information retrieved from JiRA.
     """
 
     def __init__(self, filename=time.strftime("%Y%m%d-%H%M%S"),

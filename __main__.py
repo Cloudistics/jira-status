@@ -1,3 +1,6 @@
+"""
+Log JiRA statistics based on the configuration.json file.
+"""
 from configuration_values import ConfigurationValues
 from jira_logger import JiraLogger
 from jira_status import JiraStatus
@@ -20,7 +23,7 @@ def main():
     """
     parser = argparse.ArgumentParser(
         description=('Collect statistics on the status of the configured '
-                     'JIRA project.'))
+                     'JiRA project.'))
     parser.add_argument('-e', '--email', action='store_true',
                         help='send a status email')
     parser.add_argument('-v', '--verbose', action='store_true',
@@ -28,7 +31,7 @@ def main():
     args = parser.parse_args()
 
     if args.verbose:
-        print('Collecting JIRA status...\n')
+        print('Collecting JiRA status...\n')
 
     logger = JiraLogger(GLOBAL_CONFIGURATION.log_filename,
                         GLOBAL_CONFIGURATION.log_formatter)
@@ -47,34 +50,19 @@ def main():
                                  GLOBAL_CONFIGURATION.jira_component,
                                  GLOBAL_CONFIGURATION.jira_epics_to_track)
 
-    # Read results.
-    fp = open(os.path.join(
-        MAIN_DIR,
-        'logs',
-        GLOBAL_CONFIGURATION.log_filename),
-        'rb')
-    msg = fp.read()
-    fp.close()
-
     if args.verbose:
+        # Read results.
+        fp = open(os.path.join(
+            MAIN_DIR,
+            'logs',
+            GLOBAL_CONFIGURATION.log_filename),
+            'rb')
+        msg = fp.read()
+        fp.close()
+
         # Output stats to console.
         print(msg)
         print('You can find a copy of this information in the logs directory.')
-
-    if args.email:
-        if args.verbose:
-            print('Sending email message...')
-
-        mail_client = Office365Client(GLOBAL_CONFIGURATION.office_365_smtp_host,
-                                      GLOBAL_CONFIGURATION.office_365_smtp_port,
-                                      GLOBAL_CONFIGURATION.office_365_username,
-                                      GLOBAL_CONFIGURATION.office_365_password)
-
-        jira_instance.send_status_email(mail_client,
-                                        GLOBAL_CONFIGURATION.email_from,
-                                        GLOBAL_CONFIGURATION.email_to,
-                                        GLOBAL_CONFIGURATION.email_subject,
-                                        msg)
 
 
 if __name__ == '__main__':

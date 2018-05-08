@@ -1,3 +1,6 @@
+"""
+Capture configuration values from a JSON file.
+"""
 import json
 import time
 
@@ -38,5 +41,5 @@ class ConfigurationValues:
         # Save timestamp of script initialization.
         self.log_filename = json_data['logFilename'].encode('utf-8')
         if json_data['logFilenameAppendTimestamp']:
-            self.log_filename += time.strftime("%Y%m%d-%H%M%S")
+            self.log_filename += time.strftime("-%Y%m%d-%H%M%S")
         self.log_filename += json_data['logFileExtension'].encode('utf-8')
