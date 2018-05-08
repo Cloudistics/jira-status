@@ -24,8 +24,6 @@ def main():
     parser = argparse.ArgumentParser(
         description=('Collect statistics on the status of the configured '
                      'JiRA project.'))
-    parser.add_argument('-e', '--email', action='store_true',
-                        help='send a status email')
     parser.add_argument('-v', '--verbose', action='store_true',
                         help='output information about script to console')
     args = parser.parse_args()
