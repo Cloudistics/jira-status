@@ -72,7 +72,7 @@ class JiraStatus:
 
         component_bugs_created_this_week = jira_instance.search_issues(
             ('project = {0} AND component in ({1}) AND type = Bug AND '
-             'createdDate > startOfWeek() ORDER BY priority DESC')
+             'createdDate >= startOfWeek() ORDER BY priority DESC')
             .format(project, component))
 
         logger.info(('\'bugStatus\': [There are {0} open bugs in {1}. '
