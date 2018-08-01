@@ -13,7 +13,8 @@ class JiraStatus:
     """
     MAX_QUERY_RESULT_SIZE = 1000
 
-    def __init__(self, jira_server, jira_username, jira_password, logger):
+    def __init__(self, jira_server, jira_username, jira_password, logger,
+                 is_verbose):
         """
         Initialize the class.
         """
@@ -21,12 +22,16 @@ class JiraStatus:
         self._jira_username = jira_username
         self._jira_password = jira_password
         self._logger = logger
+        self._is_verbose = is_verbose
+
+        # Establish connection.
         self._jira_instance = self._connect()
 
     def _connect(self):
         """
         Connect to the JiRA instance.
         """
+        print('Connecting to JiRA...\n')
         try:
             self._logger.debug("Connecting to JiRA: %s" % self._jira_server)
 
@@ -39,10 +44,14 @@ class JiraStatus:
             jira = JIRA(options=jira_options, basic_auth=(
                 self._jira_username, self._jira_password))
 
+            if self._is_verbose:
+                print('Successfully connected to JiRA...\n')
             self._logger.debug('Successfully connected to JiRA: {0}'.format(
                 self._jira_server))
             return jira
         except Exception as e:
+            if self._is_verbose:
+                print('Failure connecting to JiRA...\n')
             self._logger.error('Failed to connect to JiRA: {0}'.format(e))
 
     def get_bug_stats(self, logger, jira_instance, project, component,

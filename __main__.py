@@ -36,7 +36,9 @@ def main():
 
     jira_instance = JiraStatus(GLOBAL_CONFIGURATION.jira_url,
                                GLOBAL_CONFIGURATION.jira_username,
-                               GLOBAL_CONFIGURATION.jira_password, logger)
+                               GLOBAL_CONFIGURATION.jira_password,
+                               logger,
+                               args.verbose)
 
     jira_instance.get_bug_stats(logger, jira_instance,
                                 GLOBAL_CONFIGURATION.jira_project_name,
