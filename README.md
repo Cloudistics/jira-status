@@ -13,6 +13,14 @@
 
 Rename the `sample.configuration.json` to `configuration.json` and enter the configuration values.
 
+If you're using [Anaconda](//anaconda.org/) to manage your Python environment,
+run the following command from the root of the repository to create an
+environment with the necessary dependencies.
+```bash
+conda config --add channels conda-forge
+conda create --name jira_status --file requirements.txt
+```
+
 ## Usage
 
 ```bash
